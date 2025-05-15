@@ -2,6 +2,11 @@
 import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import { FaTimes } from "react-icons/fa";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
+
+// Import Swiper styles
+import 'swiper/css';
 import {
   MdOutlineKeyboardDoubleArrowRight,
   MdOutlineKeyboardDoubleArrowLeft,
@@ -170,6 +175,8 @@ const CountrySlider = () => {
     };
   }, []);
 
+  const logos = Array.from({ length: 8 }, (_, i) => `/logo${i + 1}.png`);
+
   return (
     <div className="relative w-screen h-screen overflow-hidden">
       {expandedIndex !== null && (
@@ -181,22 +188,71 @@ const CountrySlider = () => {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="absolute bottom-10 left-1/3 transform -translate-x-1/2 w-[60%] h-[90%] overflow-y-auto overflow-x-hidden bg-black/40 rounded-lg backdrop-blur-md p-6 shadow-lg scroll-smooth hide-scrollbar">
-            <div className="grid grid-cols-3 gap-6 w-full">
-              {Array.from({ length: 18 }, (_, i) => (
-                <div
-                  key={i}
-                  className="relative w-48 h-32 bg-white rounded-md p-2 shadow-md flex items-center justify-center hover:scale-105 transition-transform duration-300"
-                >
-                  <Image
-                    src={`/logo${i + 1}.png`}
-                    alt={`Sponsor ${i + 1}`}
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-              ))}
-            </div>
+          <div className="absolute bottom-28 left-1/3 transform -translate-x-1/2 w-[60%] h-[60%] overflow-y-auto overflow-x-hidden  rounded-lg  p-6 shadow-lg scroll-smooth hide-scrollbar">
+           <Swiper
+    slidesPerView={4}
+    spaceBetween={30}
+    loop
+    autoplay={{ delay: 0, disableOnInteraction: false, pauseOnMouseEnter: false }}
+    speed={3000}
+    allowTouchMove={false}
+    modules={[Autoplay]}
+    breakpoints={{
+      320: { slidesPerView: 2 },
+      768: { slidesPerView: 3 },
+      1024: { slidesPerView: 4 },
+    }}
+  >
+    {logos.map((logo, i) => (
+      <SwiperSlide key={`top-${i}`}>
+        <div className="flex items-center justify-center bg-white rounded-md p-4 shadow-md h-36 w-full hover:scale-105 transition-transform duration-300">
+          <Image
+            src={logo}
+            alt={`Logo ${i + 1}`}
+            width={100}
+            height={70}
+            className="object-contain"
+          />
+        </div>
+      </SwiperSlide>
+    ))}
+  </Swiper>
+
+  {/* Bottom Reverse Auto Slider */}
+  <Swiper
+    slidesPerView={4}
+    spaceBetween={30}
+    loop
+    autoplay={{
+      delay: 0,
+      reverseDirection: true,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: false,
+    }}
+    speed={3000}
+    allowTouchMove={false}
+    modules={[Autoplay]}
+    className="mt-8"
+    breakpoints={{
+      320: { slidesPerView: 2 },
+      768: { slidesPerView: 3 },
+      1024: { slidesPerView: 4 },
+    }}
+  >
+    {logos.map((logo, i) => (
+      <SwiperSlide key={`bottom-${i}`}>
+        <div className="flex items-center justify-center bg-white rounded-md p-4 shadow-md h-36 w-full hover:scale-105 transition-transform duration-300">
+          <Image
+            src={logo}
+            alt={`Logo ${i + 1}`}
+            width={100}
+            height={70}
+            className="object-contain"
+          />
+        </div>
+      </SwiperSlide>
+    ))}
+  </Swiper>
           </div>
 
           <motion.button
@@ -211,22 +267,22 @@ const CountrySlider = () => {
           </motion.button>
 
           <motion.div
-            className="absolute top-0 right-0 w-screen lg:w-[30rem] h-full bg-white/80 backdrop-blur-lg shadow-2xl p-8 flex flex-col justify-center z-50 border-l border-white/20"
+            className="absolute top-0 right-0 w-screen lg:w-[33rem] h-full bg-white p-6 flex flex-col justify-center"
             initial={{ x: "100%", opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: "100%", opacity: 0 }}
             transition={{ duration: 1.2, ease: "easeInOut" }}
           >
-            <div className="space-y-6">
-              <h2 className="text-4xl font-extrabold text-orange-600 leading-tight uppercase tracking-wider">
+            <div className="ml-6 mr-4">
+              <h2 className="text-4xl font-bold text-black mb-4 uppercase">
                 {countries[expandedIndex].name}
               </h2>
-              <p className="text-lg text-gray-600 leading-relaxed text-justify">
+              <p className="text-base text-justify text-black">
                 {countries[expandedIndex].description}
               </p>
               <a
                 href={`/`}
-                className="inline-flex items-center justify-center bg-gradient-to-r from-sky-500 to-orange-600 text-white font-semibold px-6 py-3 rounded-xl shadow-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 ease-in-out"
+                className="inline-flex items-center bg-orange-500 text-white py-1 px-4 rounded-lg text-center transition duration-300 ease-in-out hover:bg-orange-700 mt-4"
               >
                 Read More
               </a>
