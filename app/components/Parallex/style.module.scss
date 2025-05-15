@@ -1,0 +1,176 @@
+.gallery {
+  height: 175vh;
+  // background: #fa8322;
+  background: url('/test1.png') no-repeat center top / cover;
+  position: relative;
+  display: flex;
+  gap: 2vw;
+  padding: 2vw;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  .column {
+    position: relative;
+    height: 100%;
+    width: 25%;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+    z-index: 2; /* Ensures content is above the overlay */
+
+    .gridItem {
+      height: 300px; /* Adjust height as needed */
+      // background-color: rgb(255, 255, 255);
+      background: url('/dot.webp  ') no-repeat center top / cover;
+      border-radius: 1vw;
+      border: 1px solid #949494; /* Black border */
+      display: flex;
+      flex-direction: column; /* Ensures name and text stack vertically */
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      padding: 10px;
+    
+    
+    .text {
+      font-size: 1.2rem; /* Adjust size as needed */
+      color: #333; /* Text color */
+      text-align: center;
+      font-weight: 200;
+      font-style: italic;
+    }
+    
+    .name {
+      font-size: 1rem; /* Adjust size as needed */
+      color: #006eb9; /* Slightly muted color for the name */
+      text-align: center;
+      font-style: italic;
+      font-weight: bold;
+      margin-top: 6px; /* Adds space between text and name */
+    }
+
+    .stars {
+  font-size: 1.5rem; /* Adjust size as needed */
+  color: #ffd700; /* Gold color for stars */
+  margin: 5px 0; /* Add some spacing */
+  text-align: center; /* Center align stars */
+}
+
+    
+    }
+
+    &:nth-of-type(1) {
+      top: -45%;
+    }
+    &:nth-of-type(2) {
+      top: -125%;
+    }
+    &:nth-of-type(3) {
+      top: -145%;
+    }
+    &:nth-of-type(4) {
+      top: -255%;
+    }
+  }
+}
+
+
+// @media (max-width: 768px) {
+//   .gallery {
+//     height: 120vh;
+//     background: url('/rose-petals.webp') no-repeat center top / cover;
+//     position: relative;
+//     display: flex;
+//     flex-direction: column; /* Stack the columns vertically */
+//     gap: 2vw;
+//     padding: 2vw;
+//     box-sizing: border-box;
+//     overflow: hidden;
+//     justify-content: center; /* Vertically center the columns */
+//     align-items: center; /* Horizontally center the columns */
+//   }
+
+//   .column {
+//     position: relative;
+//     height: auto; /* Let the height adjust automatically */
+//     width: 50%; /* Full width of the gallery */
+//     max-width: 150px; /* Ensures column doesn't shrink too much */
+//     display: flex;
+//     flex-direction: column; /* Stack the items vertically */
+//     gap: 2vw;
+//     z-index: 2; /* Ensures content is above the overlay */
+//     justify-content: center; /* Vertically centers the items */
+//     align-items: center; /* Horizontally centers the items */
+//   }
+
+//   .gridItem {
+//     height: 100px; /* Adjust height as needed */
+//     background-color: rgb(255, 255, 255);
+//     border-radius: 1vw;
+//     border: 1px solid; /* Black border */
+//     display: flex;
+//     flex-direction: column; /* Ensures name and text stack vertically */
+//     justify-content: center;
+//     align-items: center;
+//     position: relative;
+//     padding: 10px;
+//   }
+
+//   .text {
+//     font-size: 0.8rem; 
+//     color: #333; 
+//     text-align: center;
+//     font-weight: 200;
+//     font-style: italic;
+//   }
+
+//   .name {
+//     font-size: 0.5rem; 
+//     color: #ff6e14; 
+//     text-align: center;
+//     font-weight: bold;
+//     margin-top: 10px; 
+//   }
+  
+  
+//   .column:nth-of-type(1),
+//   .column:nth-of-type(2),
+//   .column:nth-of-type(3),
+//   .column:nth-of-type(4) {
+//     bottom: 0%; 
+//   }
+// }
+
+@media (max-width: 768px) {
+  .gallery {
+    height: auto; /* Adjust height dynamically */
+    max-height: 80vh; /* Limit height to viewport */
+    overflow-y: auto; /* Enable scrolling */
+    display: flex; /* Use flexbox to center content */
+    flex-direction: column; /* Stack content vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    padding: 2vw; /* Add some padding for spacing */
+  }
+
+  .column {
+    height: auto; /* Adjust height dynamically */
+    width: 100%; /* Take full width */
+    max-width: 400px; /* Add a max width for grid items */
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Stack grid items vertically */
+    align-items: center; /* Center grid items horizontally */
+    gap: 15px; /* Add space between items */
+    padding: 10px 0; /* Add spacing */
+  }
+
+  .gridItem {
+    height: auto; /* Let height adjust based on content */
+    padding: 20px;
+    margin-bottom: 10px; /* Add spacing between items */
+    width: 100%; /* Take full width of the column */
+    max-width: 300px; /* Center within a max width */
+  }
+}
+

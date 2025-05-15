@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "thekalinga.bootstrap4-vscode",
+        "ritwickdey.liveserver",
+        "yandeu.five-server",
+        "dbaeumer.vscode-eslint"
+    ]
+}

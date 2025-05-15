@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff; /* Light mode background */
+  --foreground: #171717; /* Light mode text color */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #ffffff; /* Keep background white in dark mode */
+    --foreground: #171717; /* Keep text color black in dark mode */
+  }
+}
+
+html {
+  scroll-behavior: smooth; /* Enable smooth scrolling globally */
+}
+
+body {
+  color: var(--foreground); /* Apply foreground color */
+  background: var(--background); /* Apply background color */
+  font-family: "DM Sans", sans-serif;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-blink {
+  animation: blink 1s infinite;
+}
+
+/* Ringing animation for phone icon */
+@keyframes ring {
+  0% {
+    transform: rotate(-5deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(-5deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* Apply the ringing animation */
+.animate-ring {
+  animation: ring 0.5s ease-in-out infinite; /* 0.5s for each ring cycle */
+}
+
+/* Glowing Text Effect */
+.text-shadow-glow {
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.4), 0 0 15px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 0, 0.7), 0 0 30px rgba(255, 255, 0, 0.6), 0 0 40px rgba(255, 255, 0, 0.5);
+}
+
+.text-shadow-glow-yellow {
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.4), 0 0 10px rgba(255, 255, 0, 0.8), 0 0 20px rgba(255, 255, 0, 0.6), 0 0 30px rgba(255, 255, 0, 0.5);
+}
+
+.text-shadow-glow-pink {
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.4), 0 0 10px rgba(255, 105, 180, 0.8), 0 0 20px rgba(255, 105, 180, 0.6), 0 0 30px rgba(255, 105, 180, 0.5);
+}
+
+
+
+@media (max-width: 1000px) {
+  body {
+    overflow-x: hidden;
+  }
+}

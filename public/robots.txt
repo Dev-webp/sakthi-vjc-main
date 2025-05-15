@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://vjcoverseas.com
+
+# Sitemaps
+Sitemap: https://vjcoverseas.com/sitemap.xml

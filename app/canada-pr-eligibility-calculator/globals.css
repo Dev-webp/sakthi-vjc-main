@@ -1,0 +1,27 @@
+@import "./base.css";
+@tailwind components;
+@tailwind utilities;
+
+
+/* Add this CSS in your global styles or a module CSS file */
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .bg-loading {
+    background-color: #f0f0f0; /* Light grey background as a placeholder */
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .bg-loaded {
+    background-image: url('/1.jpg');
+    background-size: cover;
+    background-position: center;
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  

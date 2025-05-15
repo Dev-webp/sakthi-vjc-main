@@ -1,0 +1,32 @@
+.main-container {
+  position: relative;
+  height: 200vh;
+}
+
+.section1 {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  background-color: #C72626; /* Red color */
+  font-size: 3.5vw; /* Responsive font size */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.section1-content {
+  display: flex;
+  gap: 1rem; /* Gap between elements */
+}
+
+.image-container {
+  position: relative;
+  width: 12.5vw; /* Responsive width */
+}
+
+.section2 {
+  position: relative;
+  height: 100vh;
+}
