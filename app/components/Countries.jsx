@@ -2,11 +2,12 @@
 import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import { FaTimes } from "react-icons/fa";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import Link from "next/link";
 
 // Import Swiper styles
-import 'swiper/css';
+import "swiper/css";
 import {
   MdOutlineKeyboardDoubleArrowRight,
   MdOutlineKeyboardDoubleArrowLeft,
@@ -18,9 +19,9 @@ const countries = [
   {
     name: "Canada study visa",
     image: "/c3.jpg",
-    description:
-      "Canada is known for its beautiful landscapes and outdoor activities.",
+    description: "Canada offers top-ranked universities and quality education.",
     color: "bg-gradient-to-r from-red-600 to-white",
+    link: "/studyabroad/canada",
   },
   {
     name: "Australia study visa",
@@ -28,6 +29,7 @@ const countries = [
     description:
       "Australia is famous for its wildlife, beaches, and cultural diversity.",
     color: "bg-gradient-to-r from-blue-700 to-white",
+    link: "/studyabroad/australia",
   },
   {
     name: "Usa study visa",
@@ -35,6 +37,7 @@ const countries = [
     description:
       "The USA is famous for its world-class education system and career opportunities.",
     color: "bg-gradient-to-r from-red-600 to-red-600",
+    link: "/studyabroad/usa",
   },
   {
     name: "Germany study visa",
@@ -42,6 +45,7 @@ const countries = [
     description:
       "Germany boasts a strong economy, rich history, and modern infrastructure.",
     color: "bg-gradient-to-r from-black to-yellow-600",
+    link: "/studyabroad/germany",
   },
   {
     name: "Uk study visa",
@@ -49,6 +53,7 @@ const countries = [
     description:
       "The UK is one of the most sought-after destinations for international students and skilled professionals.",
     color: "bg-gradient-to-r from-red-700 to-blue-700",
+    link: "/studyabroad/uk",
   },
   {
     name: "France study visa",
@@ -56,18 +61,21 @@ const countries = [
     description:
       "France is known for its art, cuisine, and historical landmarks.",
     color: "bg-gradient-to-r from-blue-500 to-white",
+    link: "/studyabroad/france",
   },
   {
     name: "Italy study visa",
     image: "/c7.png",
     description: "Italy is famous for its art, architecture, and cuisine.",
     color: "bg-gradient-to-r from-green-600 to-white",
+    link: "/studyabroad/italy",
   },
   {
     name: "Spain study visa",
     image: "/c13.png",
     description: "Spain is known for its vibrant culture, food, and festivals.",
     color: "bg-gradient-to-r from-red-600 to-yellow-600",
+    link: "/studyabroad/spain",
   },
   {
     name: "Netherlands study visa",
@@ -75,6 +83,7 @@ const countries = [
     description:
       "The Netherlands is famous for its windmills, tulips, and canals.",
     color: "bg-gradient-to-r from-red-600 to-blue-600",
+    link: "/studyabroad/netherlands",
   },
   {
     name: "UAE study visa",
@@ -82,6 +91,7 @@ const countries = [
     description:
       "The UAE offers a unique blend of ancient traditions and modern technology.",
     color: "bg-gradient-to-r from-green-700 to-white",
+    link: "/studyabroad/uae",
   },
   {
     name: "Switzerland study visa",
@@ -89,6 +99,7 @@ const countries = [
     description:
       "Switzerland is known for its Alps, chocolates, and financial services.",
     color: "bg-gradient-to-r from-red-600 to-white",
+    link: "/studyabroad/switzerland",
   },
   {
     name: "Sweden study visa",
@@ -96,6 +107,7 @@ const countries = [
     description:
       "Sweden is famous for its design, technology, and sustainability.",
     color: "bg-gradient-to-r from-blue-500 to-yellow-500",
+    link: "/studyabroad/sweden",
   },
   {
     name: "South Africa study visa",
@@ -103,6 +115,7 @@ const countries = [
     description:
       "South Africa offers stunning landscapes, fjords, and a rich cultural history.",
     color: "bg-gradient-to-r from-green-500 to-yellow-500",
+    link: "/studyabroad/southafrica",
   },
   {
     name: "Singapore study visa",
@@ -110,6 +123,7 @@ const countries = [
     description:
       "Singapore is known for its high-tech infrastructure and cleanliness.",
     color: "bg-gradient-to-r from-red-500 to-white",
+    link: "/studyabroad/singapore",
   },
   {
     name: "New Zealand study visa",
@@ -117,6 +131,7 @@ const countries = [
     description:
       "New Zealand is famous for its beautiful nature, lakes, and high education standards.",
     color: "bg-gradient-to-r from-blue-500 to-white",
+    link: "/studyabroad/newzealand",
   },
   {
     name: "Malaysia study visa",
@@ -124,6 +139,7 @@ const countries = [
     description:
       "Malaysia offers beautiful beaches, rich history, and amazing food.",
     color: "bg-gradient-to-r from-blue-600 to-yellow-600",
+    link: "/studyabroad/malaysia",
   },
 ];
 
@@ -189,70 +205,74 @@ const CountrySlider = () => {
           transition={{ duration: 0.6 }}
         >
           <div className="absolute bottom-28 left-1/3 transform -translate-x-1/2 w-[60%] h-[60%] overflow-y-auto overflow-x-hidden  rounded-lg  p-6 scroll-smooth hide-scrollbar">
-           <Swiper
-    slidesPerView={4}
-    spaceBetween={30}
-    loop
-    autoplay={{ delay: 0, disableOnInteraction: false, pauseOnMouseEnter: false }}
-    speed={3000}
-    allowTouchMove={false}
-    modules={[Autoplay]}
-    breakpoints={{
-      320: { slidesPerView: 2 },
-      768: { slidesPerView: 3 },
-      1024: { slidesPerView: 4 },
-    }}
-  >
-    {logos.map((logo, i) => (
-      <SwiperSlide key={`top-${i}`}>
-        <div className="flex items-center justify-center bg-white rounded-md p-4 shadow-md h-36 w-full hover:scale-105 transition-transform duration-300">
-          <Image
-            src={logo}
-            alt={`Logo ${i + 1}`}
-            width={100}
-            height={70}
-            className="object-contain"
-          />
-        </div>
-      </SwiperSlide>
-    ))}
-  </Swiper>
+            <Swiper
+              slidesPerView={4}
+              spaceBetween={30}
+              loop
+              autoplay={{
+                delay: 0,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: false,
+              }}
+              speed={3000}
+              allowTouchMove={false}
+              modules={[Autoplay]}
+              breakpoints={{
+                320: { slidesPerView: 2 },
+                768: { slidesPerView: 3 },
+                1024: { slidesPerView: 4 },
+              }}
+            >
+              {logos.map((logo, i) => (
+                <SwiperSlide key={`top-${i}`}>
+                  <div className="flex items-center justify-center bg-white rounded-md p-4 shadow-md h-36 w-full hover:scale-105 transition-transform duration-300">
+                    <Image
+                      src={logo}
+                      alt={`Logo ${i + 1}`}
+                      width={100}
+                      height={70}
+                      className="object-contain"
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
 
-  {/* Bottom Reverse Auto Slider */}
-  <Swiper
-    slidesPerView={4}
-    spaceBetween={30}
-    loop
-    autoplay={{
-      delay: 0,
-      reverseDirection: true,
-      disableOnInteraction: false,
-      pauseOnMouseEnter: false,
-    }}
-    speed={3000}
-    allowTouchMove={false}
-    modules={[Autoplay]}
-    className="mt-8"
-    breakpoints={{
-      320: { slidesPerView: 2 },
-      768: { slidesPerView: 3 },
-      1024: { slidesPerView: 4 },
-    }}
-  >
-    {logos.map((logo, i) => (
-      <SwiperSlide key={`bottom-${i}`}>
-        <div className="flex items-center justify-center bg-white rounded-md p-4 shadow-md h-36 w-full hover:scale-105 transition-transform duration-300">
-          <Image
-            src={logo}
-            alt={`Logo ${i + 1}`}
-            width={100}
-            height={70}
-            className="object-contain"
-          />
-        </div>
-      </SwiperSlide>
-    ))}
-  </Swiper>
+            {/* Bottom Reverse Auto Slider */}
+            <Swiper
+              slidesPerView={4}
+              spaceBetween={30}
+              loop
+              autoplay={{
+                delay: 0,
+                reverseDirection: true,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: false,
+              }}
+              speed={3000}
+              allowTouchMove={false}
+              modules={[Autoplay]}
+              className="mt-8"
+              breakpoints={{
+                320: { slidesPerView: 2 },
+                768: { slidesPerView: 3 },
+                1024: { slidesPerView: 4 },
+              }}
+            >
+              {logos.map((logo, i) => (
+                <SwiperSlide key={`bottom-${i}`}>
+                  <div className="flex items-center justify-center bg-white rounded-md p-4 shadow-md h-36 w-full hover:scale-105 transition-transform duration-300">
+                    <Image
+                      src={logo}
+                      alt={`Logo ${i + 1}`}
+                      width={100}
+                      height={70}
+                      className="object-contain"
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
 
           <motion.button
@@ -280,12 +300,12 @@ const CountrySlider = () => {
               <p className="text-base text-justify text-black">
                 {countries[expandedIndex].description}
               </p>
-             <a
-                href={`/`}
+              <Link
+                href={countries[expandedIndex].link}
                 className="inline-flex items-center mt-6 justify-center bg-gradient-to-r from-sky-500 to-orange-600 text-white font-semibold px-6 py-3 rounded-xl shadow-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 ease-in-out"
               >
                 Read More
-              </a>
+              </Link>
             </div>
           </motion.div>
 
