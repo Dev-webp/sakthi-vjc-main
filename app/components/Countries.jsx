@@ -188,7 +188,7 @@ const CountrySlider = () => {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="absolute bottom-28 left-1/3 transform -translate-x-1/2 w-[60%] h-[60%] overflow-y-auto overflow-x-hidden  rounded-lg  p-6 shadow-lg scroll-smooth hide-scrollbar">
+          <div className="absolute bottom-28 left-1/3 transform -translate-x-1/2 w-[60%] h-[60%] overflow-y-auto overflow-x-hidden  rounded-lg  p-6 scroll-smooth hide-scrollbar">
            <Swiper
     slidesPerView={4}
     spaceBetween={30}
@@ -280,9 +280,9 @@ const CountrySlider = () => {
               <p className="text-base text-justify text-black">
                 {countries[expandedIndex].description}
               </p>
-              <a
+             <a
                 href={`/`}
-                className="inline-flex items-center bg-orange-500 text-white py-1 px-4 rounded-lg text-center transition duration-300 ease-in-out hover:bg-orange-700 mt-4"
+                className="inline-flex items-center mt-6 justify-center bg-gradient-to-r from-sky-500 to-orange-600 text-white font-semibold px-6 py-3 rounded-xl shadow-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 ease-in-out"
               >
                 Read More
               </a>
