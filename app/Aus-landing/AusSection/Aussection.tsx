@@ -1,6 +1,6 @@
 "use client";
 
-import AustraliaPRCard from "../AusSection/AustraliaPRCard"; // Adjust path if needed
+import AustraliaPRCard from "./AustraliaPRCard";
 
 const AustraliaPRBenefits = [
   {
