@@ -27,14 +27,14 @@ const slidesData = [
     title: "Skilled Worker",
   },
   {
-    image: "/assets/auspr/Reviews/review4.png",
+    image: "/assets/auspr/reviews/review4.png",
     content:
       "had an amazing experience with VJC Overseas Bangalore. They helped me with my Australia PR immigration process, and everything went smoothly from start to finish. Their expertise and dedication are unmatched.",
     author: "Sai Preethi",
     title: "Australia Immigration",
   },
   {
-    image: "/assets/auspr/Reviews/review5.png",
+    image: "/assets/auspr/reviews/review5.png",
     content:
       "VJC overseas made my Australia PR Visa application process very easy. Their staff is very friendly and helpful.",
     author: "Hanish Mj",
