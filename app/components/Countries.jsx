@@ -294,7 +294,7 @@ const CountrySlider = () => {
             transition={{ duration: 1.2, ease: "easeInOut" }}
           >
             <div className="ml-6 mr-4">
-              <h2 className="text-4xl font-bold text-black mb-4 uppercase">
+              <h2 className="text-4xl font-bold text-orange-600 mb-4 uppercase">
                 {countries[expandedIndex].name}
               </h2>
               <p className="text-base text-justify text-black">
