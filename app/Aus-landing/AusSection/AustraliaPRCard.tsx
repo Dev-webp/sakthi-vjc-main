@@ -25,12 +25,13 @@ export default function AustraliaPRCard({ item, isEven }: any) {
       }`}
     >
       <div className="w-full md:w-1/2">
-        <div className="w-[500px] h-[300px] relative rounded-xl overflow-hidden shadow-md">
+        <div className="w-full h-64 md:h-[300px] relative rounded-xl overflow-hidden shadow-md">
           <Image
             src={item.image}
             alt={item.title}
             fill
             className="object-cover"
+            sizes="(max-width: 768px) 100vw, 50vw"
           />
         </div>
       </div>
