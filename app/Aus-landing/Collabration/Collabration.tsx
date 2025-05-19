@@ -33,17 +33,17 @@ export default function StudyInUK() {
           transition={{ duration: 1 }}
         >
           <h3 className="text-sm font-semibold text-gray-900 mb-2">
-            <span className="text-orange-600 tracking-widest">Canada PR Eligibility</span>
+            <span className="text-orange-600 tracking-widest">Australia PR Eligibility</span>
           </h3>
           <h2 className="text-3xl font-bold text-sky-800 mb-4">
-            Explore Canada Residency with{" "}
+            Explore Australia Residency with{" "}
             <span className="text-orange-500">VJC Overseas</span>
           </h2>
           <p className="text-gray-700 leading-relaxed">
-            Canada offers numerous opportunities for skilled professionals and
+            Australia offers numerous opportunities for skilled professionals and
             immigrants through its Permanent Residency (PR) program. Whether
             you&apos;re looking to start a new life in a multicultural environment or
-            expand your career prospects, the Canada PR process ensures that
+            expand your career prospects, the Australia PR process ensures that
             your application is supported at every step.
           </p>
         </motion.div>
