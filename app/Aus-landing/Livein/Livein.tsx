@@ -52,7 +52,7 @@ const Livein = () => {
   return (
     <section
       ref={ref}
-      className="relative py-20 px-6 text-gray-800 bg-[url('/assets/auspr/liveinbg.png')] bg-cover bg-center bg-fixed bg-no-repeat"
+      className="relative py-20 px-6 text-gray-800 "
     >
     
 
