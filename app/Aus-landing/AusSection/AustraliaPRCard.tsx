@@ -22,14 +22,15 @@ export default function AustraliaPRCard({ item, isEven }: any) {
       }`}
     >
       {/* Image Section */}
-      <div className="flex-1">
-        <div className="w-full h-64 md:h-[300px] relative rounded-xl overflow-hidden shadow-md">
+      <div className="flex-1 w-full">
+        <div className="relative w-full h-64 md:h-[300px] rounded-xl overflow-hidden shadow-md">
           <Image
             src={item.image}
             alt={item.title}
             fill
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 50vw"
+            priority
           />
         </div>
       </div>
