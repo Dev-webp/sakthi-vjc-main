@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const video = {
   src: "/assets/auspr/aus.mp4",
-  title: "Work, Live & Settle in Australia with Australia PR Visa - Apply Now",
+  title: "Your Path to Australia: A Complete Guide to the Permanent Residence Visa Process ",
   subtitle: "Expert guidance and seamless processing for Australia PR Visas.",
   isVideo: true,
 };

@@ -11,6 +11,8 @@ import Process from "../Processsuccess/Processsuccess"
 import Requirements from "../Requirements/Requirements"
 import Livein from '../Livein/Livein'
 import Footer from "@/app/components/Footer";
+import WhyAus from "../WhyAus/WhyAus"
+import Typespr from "../Typespr/Typespr"
 const Landing = () => {
   return (
     <div>
@@ -21,8 +23,9 @@ const Landing = () => {
       <Process></Process>
       <Requirements></Requirements>
       <Collabration></Collabration>
-      
+      <Typespr></Typespr>
       <Review></Review>
+      <WhyAus></WhyAus>
       <CanadaSection></CanadaSection>
       <Whychoose></Whychoose>
       <Livein></Livein>

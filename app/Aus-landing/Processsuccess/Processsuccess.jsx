@@ -3,49 +3,81 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
+const textVariant = (delay) => ({
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, delay, ease: "easeInOut" },
+  },
+});
+
+const imageVariant = (delay) => ({
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.5, delay, ease: "easeInOut" },
+  },
+});
+
 export default function ProcessSection() {
   const steps = [
     {
       id: "01",
-      title: "Profile Evaluation",
+      title: "Check Your Eligibility",
       description:
-        "We begin by thoroughly analyzing your education, work experience, and language proficiency to determine your eligibility under Australia’s PR programs.",
-      image: "/assets/canadapr/process/process1.png",
+        "Evaluate your age, English proficiency, qualifications, and work experience. Use Australia’s Points Test for skilled visas — you’ll generally need at least 65 points to apply.",
+      image: "/assets/auspr/process/process1.png",
     },
     {
       id: "02",
-      title: "Counseling and Planning",
+      title: "Choose the Right Visa Subclass",
       description:
-        "Based on your profile, we guide you on the most suitable PR stream such as Express Entry, PNP, or others. Our expert counselors help you plan your migration path strategically.",
+        "Each visa type has specific requirements. Choosing the correct stream ensures a higher success rate and smoother processing.",
       image: "/assets/canadapr/process/process2.png",
     },
     {
       id: "03",
-      title: "Documentation Support",
+      title: "Skill Assessment",
       description:
-        "We assist in gathering, organizing, and verifying all necessary documents, including educational credentials, work experience letters, and language test results.",
+        "Applicants for skilled visas must have their qualifications assessed by a relevant authority to confirm they meet Australian standards.",
       image: "/assets/canadapr/process/process3.png",
     },
     {
       id: "04",
-      title: "Application Submission",
+      title: "Submit an Expression of Interest (EOI)",
       description:
-        "Once your profile and documents are ready, we submit your application accurately through the appropriate Australia immigration portals such as Express Entry or PNP portals.",
+        "Create a profile in SkillSelect to express your interest in migrating. State governments or employers can view your EOI and invite you to apply.",
       image: "/assets/canadapr/process/process4.png",
     },
     {
       id: "05",
-      title: "Follow-Up & Updates",
+      title: "Receive an Invitation to Apply",
       description:
-        "We constantly track your application progress, respond to government queries, and keep you informed about every milestone and document request.",
+        "If your profile is competitive, you’ll be invited to submit a formal visa application.",
       image: "/assets/canadapr/process/process5.png",
     },
     {
       id: "06",
-      title: "Visa Approval & Pre-departure",
+      title: "Lodge Your Application",
       description:
-        "After your visa approval, we provide you with pre-departure guidance covering travel, accommodation, and integration tips to make your transition to Australia smooth and stress-free.",
+        "Submit all required documents, police checks, medical exams, and proof of funds.",
       image: "/assets/canadapr/process/process6.png",
+    },
+    {
+      id: "07",
+      title: "Wait for a Decision",
+      description:
+        "Processing times vary depending on the visa subclass and your personal circumstances. You can track your application online.",
+      image: "/assets/auspr/process/process7.png",
+    },
+    {
+      id: "08",
+      title: "Receive Your PR Grant",
+      description:
+        "Once approved, you’re officially a permanent resident of Australia. Welcome to your new chapter!",
+      image: "/assets/auspr/process/process8.png",
     },
   ];
 
@@ -53,46 +85,41 @@ export default function ProcessSection() {
     <div className="relative w-full mt-10">
       {/* Background Image */}
       <div
-  className="absolute inset-0 bg-cover bg-no-repeat bg-fixed z-0"
-  style={{
-    backgroundImage: "url('/assets/auspr/process1.jpg')",
-    backgroundPosition: "center 40%",  // Shift the image down a bit
-  }}
->
-  <div className="absolute inset-0 bg-black/50"></div>
-</div>
+        className="absolute inset-0 bg-cover bg-no-repeat bg-fixed z-0"
+        style={{
+          backgroundImage: "url('/assets/auspr/process1.jpg')",
+          backgroundPosition: "center 40%",
+        }}
+      >
+        <div className="absolute inset-0 bg-black/50"></div>
+      </div>
 
       {/* Foreground content */}
       <div className="relative z-10 px-8 md:px-16 lg:px-32 py-14">
         <motion.div
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="text-center mb-12"
         >
           <h2 className="text-2xl lg:text-5xl text-left font-bold text-orange-400">
-            Australia PR Visa Application Process
+            Step-by-Step: The PR Visa Process
           </h2>
         </motion.div>
 
         <div className="space-y-14">
           {steps.map((step, index) => (
-            <motion.div
+            <div
               key={step.id}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: index * 0.2 }}
-              // Remove viewport once:true to allow repeat animation
-              viewport={{ once: false, amount: 0.5 }}
               className={`flex flex-col md:flex-row items-center gap-8 md:gap-10 ${
                 index % 2 !== 0 ? "md:flex-row-reverse" : ""
               }`}
             >
               <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1, delay: index * 0.2 }}
-                viewport={{ once: true }}
+                variants={textVariant(index * 0.1)}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.5 }}
                 className="md:w-1/2 text-left"
               >
                 <p className="text-sm font-bold text-white">{step.id}</p>
@@ -103,10 +130,10 @@ export default function ProcessSection() {
               </motion.div>
 
               <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1, delay: index * 0.2 }}
-                viewport={{ once: true }}
+                variants={imageVariant(index * 0.1)}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.5 }}
                 className="md:w-1/2"
               >
                 <div className="w-full h-64 md:h-80 overflow-hidden rounded-lg flex">
@@ -120,7 +147,7 @@ export default function ProcessSection() {
                   />
                 </div>
               </motion.div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 
 const cardVariants = {
   hiddenLeft: { opacity: 0, x: -100 },
@@ -11,20 +10,19 @@ const cardVariants = {
 };
 
 export default function AustraliaPRCard({ item, isEven }: any) {
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.3 });
-
   return (
     <motion.div
-      ref={ref}
-      variants={cardVariants}
       initial={isEven ? "hiddenLeft" : "hiddenRight"}
-      animate={inView ? "visible" : ""}
+      whileInView="visible"
+      variants={cardVariants}
       transition={{ duration: 0.6, ease: "easeOut" }}
+      viewport={{ once: false, amount: 0.3 }}
       className={`flex flex-col md:flex-row items-center gap-6 ${
         isEven ? "md:flex-row" : "md:flex-row-reverse"
       }`}
     >
-      <div className="w-full md:w-1/2">
+      {/* Image Section */}
+      <div className="flex-1">
         <div className="w-full h-64 md:h-[300px] relative rounded-xl overflow-hidden shadow-md">
           <Image
             src={item.image}
@@ -35,9 +33,13 @@ export default function AustraliaPRCard({ item, isEven }: any) {
           />
         </div>
       </div>
-      <div className="w-full md:w-1/2 bg-white rounded-xl shadow-lg p-6 border-l-4 border-orange-500">
+
+      {/* Content Section */}
+      <div className="flex-1 h-64 md:h-[150px] bg-white rounded-xl shadow-lg p-6 border-l-4 border-orange-500 flex flex-col justify-center">
         <h3 className="text-xl font-bold text-orange-600 mb-2">{item.title}</h3>
-        <p className="text-gray-700 text-sm">{item.desc}</p>
+        <p className="text-gray-700 text-sm overflow-hidden text-ellipsis">
+          {item.desc}
+        </p>
       </div>
     </motion.div>
   );

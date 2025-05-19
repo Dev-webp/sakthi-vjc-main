@@ -24,7 +24,7 @@ export default function TrustedVisaSection() {
   return (
     <section
       ref={ref}
-      className="relative bg-white py- px-6 md:pl-20 md:px-16 overflow-hidden"
+      className="relative bg-white py-20 px-6 md:pl-20 md:px-16 overflow-hidden"
     >
       {/* Background Image */}
       <div className="absolute top-0 left-0 w-full h-full z-0 pointer-events-none">
@@ -39,7 +39,7 @@ export default function TrustedVisaSection() {
       </div>
 
       {/* Foreground Content */}
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center relative z-10">
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-start relative z-10">
         {/* Left Content */}
         <motion.div
           className="space-y-6"
@@ -47,22 +47,39 @@ export default function TrustedVisaSection() {
           animate={leftControls}
           variants={{
             hidden: { opacity: 0, y: 100 },
-            visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.8, ease: "easeOut" },
+            },
           }}
         >
-          <p className="text-sky-800 font-semibold uppercase tracking-widest">
-            Why Choose VJC Overseas
-          </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-orange-600">
-            Trusted Australia PR & Immigration Experts
-          </h2>
-          <p className="text-gray-600">
-            VJC Overseas offers expert guidance for Australia Permanent Residency.
-            From eligibility checks to documentation, our experienced team
-            ensures a smooth and successful application process for Federal
-            Express Entry, PNP, and other PR pathways.
-          </p>
+        
 
+          {/* Inserted New Content */}
+          <div className="space-y-6">
+            <h3 className="text-3xl md:text-4xl font-bold text-orange-600">
+              Dreaming of a new life Down Under?
+            </h3>
+            <p className="text-gray-600">
+              Australia’s Permanent Residence (PR) visa offers a pathway to long-term
+              settlement, work rights, and eventually, Australian citizenship. Whether
+              you're a skilled professional, a business investor, or looking to reunite
+              with family, PR opens the door to a future full of opportunity.
+            </p>
+
+            <h3 className="text-3xl md:text-4xl font-bold text-orange-600">
+              What is an Australian PR Visa?
+            </h3>
+            <p className="text-gray-600">
+              An Australian Permanent Residence visa allows non-citizens to live, work,
+              and study in Australia indefinitely. As a PR holder, you enjoy many of the
+              rights and benefits of citizens, including access to healthcare (Medicare),
+              education, and the ability to sponsor eligible family members.
+            </p>
+          </div>
+
+          {/* Highlights */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
             <div className="flex items-center gap-4">
               <span className="text-yellow-500 text-3xl">🛂</span>
@@ -88,6 +105,7 @@ export default function TrustedVisaSection() {
             </div>
           </div>
 
+          {/* CTA Button */}
           <Link
             href="/prvisas/australiapr"
             className="relative overflow-hidden inline-block px-6 py-3 mt-6 rounded-md font-semibold text-white bg-orange-500 group"
@@ -104,7 +122,11 @@ export default function TrustedVisaSection() {
           animate={rightControls}
           variants={{
             hidden: { opacity: 0, x: 150 },
-            visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut", delay: 0.3 } },
+            visible: {
+              opacity: 1,
+              x: 0,
+              transition: { duration: 0.8, ease: "easeOut", delay: 0.3 },
+            },
           }}
         >
           <div className="relative w-full max-w-[550px] h-[300px] md:h-[500px] rounded-lg overflow-hidden">
